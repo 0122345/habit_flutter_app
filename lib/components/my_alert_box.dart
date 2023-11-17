@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyAlertBox extends StatelessWidget {
   final controller;
+  final String hintText;
   final VoidCallback onBika;
   final VoidCallback onSiba;
 
@@ -9,8 +10,9 @@ class MyAlertBox extends StatelessWidget {
     super.key,
     required this.controller,
     required this.onBika,
-    required this.onSiba
-     });
+    required this.onSiba,
+    required this.hintText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +21,13 @@ class MyAlertBox extends StatelessWidget {
       content: TextField(
         controller: controller,
         style: const TextStyle(color: Colors.white),
-        decoration: const InputDecoration(
-          enabledBorder: OutlineInputBorder(
+        decoration:  InputDecoration(
+          hintText: hintText,
+          hintStyle: TextStyle(color: const Color.fromARGB(255, 161, 152, 152)),
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
           ),
         ),
@@ -39,7 +43,7 @@ class MyAlertBox extends StatelessWidget {
         ),
         MaterialButton(
           onPressed: onSiba,
-          child:  Text(
+          child: Text(
             "Siba",
             style: TextStyle(color: Colors.white),
           ),
